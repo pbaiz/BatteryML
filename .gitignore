@@ -31,3 +31,12 @@ share/python-wheels/
 .installed.cfg
 *.egg
 MANIFEST
+
+venv_batteryML/
+workspaces_new/
+.cache/
+.env
+.ipynb_checkpoints/
+.jupyter/
+.local/
+.npm/

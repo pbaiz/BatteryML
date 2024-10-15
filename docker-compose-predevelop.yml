@@ -1,0 +1,10 @@
+version: "3.8"
+
+services:
+  ds-exploration-predevelop:
+    image: ds_exploration_predevelop:latest
+    build:
+      context: .
+      dockerfile: Dockerfile-predevelop
+    env_file: .env
+    entrypoint: jupyter lab

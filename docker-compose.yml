@@ -1,0 +1,23 @@
+version: "3.8"
+
+services:
+  ds-exploration:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    platform: linux/amd64
+    image: ds_exploration_image
+    user: root
+    volumes:
+      #  - ./notebooks:/home/jovyan/notebooks
+      - .:/home/jovyan/
+    ports:
+      - 8888:8888
+    environment:
+      - CHOWN_HOME=yes
+      - JUPYTER_TOKEN=token
+      - NB_USER=jovyan
+      - NB_UID=1000
+      - NB_GID=100
+    working_dir: /home/jovyan
+    env_file: .env

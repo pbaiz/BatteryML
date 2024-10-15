@@ -1,0 +1,17 @@
+# This is a simple Dockerfile to use while performing exploration (for deployment consider smaller images)
+#FROM --platform=linux/amd64 python:3.9.6
+#FROM quay.io/jupyter/minimal-notebook
+FROM --platform=linux/amd64 quay.io/jupyter/scipy-notebook
+
+USER root
+
+# Best Libraries for Geo Visualisation, Good overview:
+# https://towardsdatascience.com/best-libraries-for-geospatial-data-visualisation-in-python-d23834173b35
+
+RUN pip install ydata-profiling==4.8.3
+RUN pip install ipywidgets==8.1.3
+RUN pip install voila
+
+# Install main packages using Pip - This is used when Conda does not work!
+COPY requirements.txt ./requirements.txt
+RUN pip install -r requirements.txt

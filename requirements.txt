@@ -12,3 +12,5 @@ h5py
 openpyxl
 requests
 xgboost
+torch 
+torchvision
